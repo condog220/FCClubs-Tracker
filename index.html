@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC 26 Clubs App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <nav>
+        <h1 id="app-title">FC 26 Clubs App</h1>
+    </nav>
+</head>
+<body>
+    <div class="container">
+        <div class="search">
+            <input type="text" id="search-input" placeholder="Search club">
+            <button id='search-button'><img src="./img/button.png"></a>
+        </div>
+        <div class="stats-container">
+            <div class="club-overview">
+                <div class="club-info">
+                    <img></img>
+                    <div class="club-name">
+                        <h2></h2>
+                        <div class="win-loss">
+                            <p id="w">W</p>
+                            <p id="d">D</p>
+                            <p id="l">L</p>
+                            <p id="wins">0</p>
+                            <p id="draws">0</p>
+                            <p id="losses">0</p>
+                        </div>
+                    </div>
+                    <div class="member-count">
+                        <p>Members:</p>
+                        <p id="member-count">8</p>
+                    </div>
+                    <div class="manager-info">
+                        <p>Skill Rating:</p>
+                        <p id="skill-rating">0</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="game-list">
+                <div class="recent-games">
+                    <h3>Recent Games</h3>
+                </div>
+                <div class="top-performer">
+                    <h3>Top Performer</h3>
+                </div>
+            </div>
+            <div class="member-stats-container">
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

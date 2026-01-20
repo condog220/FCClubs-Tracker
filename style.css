@@ -1,0 +1,309 @@
+*{
+    outline: none;
+    margin: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #F2F2F2;
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+
+#app-title{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10%;
+}
+
+.search input{
+    padding: 12px;
+    border-radius: 16px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #2C2C2C;
+    width: 300px;
+}
+
+.search button{
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    outline: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search img {
+    width: 25px;
+    cursor: pointer;
+}
+
+.search button:hover{
+    cursor: pointer;
+}
+
+.club-overview{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: #b8b6b6 solid 1.5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    width: 50%;
+    max-height: 600px;
+    min-width: 350px;
+    margin: 70px auto;
+    padding: 40px;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.club-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#w{
+    background-color: green;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#d{
+    background-color: yellow;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#l{
+    background-color: red;
+    border-radius: 15px;
+    text-align: center; 
+}
+
+#wins,#draws, #losses{
+    font-size: 30px;
+    text-align: center;
+}
+
+.club-name h2{
+    font-size: 40px;
+    text-align: center;
+}
+
+
+.club-overview img{
+    width: 100px;
+}
+
+.stats-container{
+    align-items: center;
+}
+
+.win-loss{
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 15px;
+    font-size: 18px;
+    justify-content: center;
+}
+
+.member-count{
+    text-align: center;
+    margin: 0;
+}
+
+#member-count{
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#skill-rating{
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 1;
+}
+
+.game-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 100px
+}
+
+.recent-games, .top-performer{
+    border: #b8b6b6 solid 1.5px;
+    border-radius: 10px;
+    width: 25%;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.top-performer p{
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+.member-stats-container{
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 5%;
+}
+
+.member-card{
+    border: #b8b6b6 solid 1.5px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    flex: 0 0 calc(33.33% - 30px);
+    max-width: 400px;
+}
+
+#player-title{
+    text-align: center;
+    margin-top: 35px;
+}
+
+.content-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.main-content{
+    flex-wrap: wrap;
+}
+
+.player-section, .side-details, .stats-section{
+    border: #b8b6b6 solid 1.5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.side-details{
+    text-align: center;
+    margin-bottom: 10px;
+    max-height: 200px;
+    min-width: 250px;
+}
+
+#club-image{
+    width: 150px;
+
+}
+
+.side-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    gap: 20px;
+}
+
+.club-info img{
+    width: 275px;
+}
+
+.club-details{
+    text-align: center;
+}
+
+.main-content{
+    margin-top: 5%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.player-title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.player-info{
+    margin-top: 30px;
+    display: grid;
+    text-align: center;
+    row-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.stats-section{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    text-align: center;
+    row-gap: 20px;
+}
+
+.field p:last-child{
+    content: '';
+    border-bottom: #2C2C2C solid;
+    width: 120px;
+    margin: 0 auto;
+}
+
+@media (max-width: 786px){
+    .side-details{
+        min-width: 150px;
+    }
+    #club-image{
+        width: 100px;
+    }
+
+    .content-container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .main-content{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
