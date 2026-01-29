@@ -10,7 +10,7 @@ searchButton.addEventListener('click', async () => {
 
 async function getClubId(clubName) {
     try {
-        const response = await fetch(`https://fc26-clubstracker.onrender.com/api/club?clubName=${encodeURIComponent(clubName)}&platform=common-gen5`);
+        const response = await fetch(`https://fc26clubs-tracker.fly.dev/api/club?clubName=${encodeURIComponent(clubName)}`);
         if (!response.ok) {
             throw new Error('Club not found');
         }
@@ -37,7 +37,7 @@ async function getClubId(clubName) {
 
 async function getClubInfo(clubId) {
     try {
-        const response = await fetch(`https://fc26-clubstracker.onrender.com/api/club/info?clubId=${encodeURIComponent(clubId)}&platform=common-gen5`);
+        const response = await fetch(`https://fc26clubs-tracker.fly.dev/api/club/info?clubId=${encodeURIComponent(clubId)}`);
         if (!response.ok) {
             throw new Error('Club info not found');
         }
@@ -59,7 +59,7 @@ async function getClubInfo(clubId) {
 
 async function getMemberStats(clubId) {
     try {
-        const response = await fetch(`https://fc26-clubstracker.onrender.com/api/member?clubId=${encodeURIComponent(clubId)}&platform=common-gen5`);
+        const response = await fetch(`https://fc26clubs-tracker.fly.dev/api/member?clubId=${encodeURIComponent(clubId)}`);
         if (!response.ok) {
             throw new Error('Club stats not found');
         }
