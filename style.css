@@ -165,11 +165,6 @@ nav{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.top-performer p{
-    font-size: 40px;
-    margin-top: 30px;
-}
-
 .member-stats-container{
     margin-top: 5%;
     display: flex;
@@ -299,6 +294,10 @@ nav{
     .main-content{
         width: 100%;
     }
+}
+
+.recent-games p, .top-performer p {
+    font-size: 40px;
 }
 
 
