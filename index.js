@@ -42,7 +42,6 @@ async function getClubInfo(clubId) {
             throw new Error('Club info not found');
         }
         const data = await response.json();
-        console.log('Club Info:', data);
         const wins = data.wins;
         const draws = data.ties;
         const losses = data.losses;
@@ -67,8 +66,7 @@ async function getMemberStats(clubId) {
         const players = data.members;
         sessionStorage.setItem('clubMembers', JSON.stringify(players));
         await appendMemberStats(data);
-        console.log('Club Stats:', data);
-
+        
         return data;
     } catch (error) {
         console.error('Error fetching club stats:', error);
