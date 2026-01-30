@@ -28,6 +28,7 @@ async function getClubId(clubName) {
         const clubId = data[0].clubId;
         await getMemberStats(clubId);
         await getClubInfo(clubId);
+        await getMatchInfo(clubId);
         return clubId;
 
     } catch (error) {
@@ -70,6 +71,63 @@ async function getMemberStats(clubId) {
         return data;
     } catch (error) {
         console.error('Error fetching club stats:', error);
+    }
+}
+
+
+async function getMatchInfo(clubId){
+    try {
+        const response =  await fetch(`https://fc26clubs-tracker.fly.dev/api/match/info?clubId=${encodeURIComponent(clubId)}`);
+        if(!response.ok){
+            throw new Error('Not found');
+        }
+
+        const data = await response.json();
+        const recentGames = data.slice(0,3);
+
+        console.log(recentGames);
+
+        const recentField = document.querySelector('.grid-games');
+
+        recentField.innerHTML = '';
+
+        recentGames.forEach(matches => {
+            let yourTeam;
+            let opponent;
+
+            Object.entries(matches.clubs).forEach(([clubIds,club]) => {
+                if(clubIds === clubId) {
+                    yourTeam = club;
+                } else {
+                    opponent = club;
+                }
+            });
+
+            let win = yourTeam.goals > opponent.goals;
+
+            const gameField = document.createElement('div');
+
+            gameField.classList.add('game-field');
+            
+            gameField.innerHTML = `
+            <p>${opponent.details.name}</p>
+            <img src='https://eafc24.content.easports.com/fifa/fltOnlineAssets/24B23FDE-7835-41C2-87A2-F453DFDB2E82/2024/fcweb/crests/256x256/l${opponent.details.customKit.crestAssetId}.png'></img>
+            <p class='outcome'>${win === true ? 'W' : 'L'}</p>
+            <p>${yourTeam.goals} - ${opponent.goals}</p>`
+            
+            recentField.appendChild(gameField);
+
+            if(win) {
+                gameField.querySelector('.outcome').classList.add('win');
+            } else {
+                gameField.querySelector('.outcome').classList.add('lose');
+            }
+
+
+        });
+    }
+    catch(error){
+        console.log(error);
     }
 }
 
