@@ -8,6 +8,11 @@ searchButton.addEventListener('click', async () => {
     console.log(`Club ID for ${clubName}: ${clubId}`);
 });
 
+function toggleDetails(button) {
+    const card = button.closest(".history-card");
+    card.classList.toggle('expanded');
+} 
+
 async function getClubId(clubName) {
     try {
         const response = await fetch(`https://fc26clubs-tracker.fly.dev/api/club?clubName=${encodeURIComponent(clubName)}`);
@@ -83,6 +88,7 @@ async function getMatchInfo(clubId){
         }
 
         const data = await response.json();
+        appendMatchHistory(data, clubId);
         const recentGames = data.slice(0,3);
 
         console.log(recentGames);
@@ -122,8 +128,6 @@ async function getMatchInfo(clubId){
             } else {
                 gameField.querySelector('.outcome').classList.add('lose');
             }
-
-
         });
     }
     catch(error){
@@ -147,6 +151,73 @@ async function appendMemberStats(data) {
         <p>${member.proOverall}</p>`;
         memberList.appendChild(memberField);
     });
+}
+
+    async function appendMatchHistory(data, clubId) {
+            data.forEach(matches => {
+            let yourTeam;
+            let opponent;
+
+            Object.entries(matches.clubs).forEach(([clubIds,club]) => {
+                if(clubIds === clubId) {
+                    yourTeam = club;
+                } else {
+                    opponent = club;
+                }
+            });
+
+            const historyContainer = document.querySelector('.match-history-container');
+
+            const historyCard = document.createElement('div');
+            historyCard.className = 'history-card';
+
+            const matchSummary = document.createElement('div');
+            matchSummary.className = 'matchSummary';
+
+            const home = document.createElement('div');
+            home.className = 'home';
+
+            home.innerHTML = `
+            <img src = 'https://eafc24.content.easports.com/fifa/fltOnlineAssets/24B23FDE-7835-41C2-87A2-F453DFDB2E82/2024/fcweb/crests/256x256/l${yourTeam.details.customKit.crestAssetId}.png'>
+            <p>${yourTeam.details.name}</p>`;
+
+            const stats = document.createElement('div');
+            stats.className = 'stats';
+
+            stats.innerHTML = `${yourTeam.goals} - ${opponent.goals}`;
+
+            const away = document.createElement('div');
+            away.className = 'away';
+
+            away.innerHTML = `
+            <img src= 'https://eafc24.content.easports.com/fifa/fltOnlineAssets/24B23FDE-7835-41C2-87A2-F453DFDB2E82/2024/fcweb/crests/256x256/l${opponent.details.customKit.crestAssetId}.png'>
+            <p>${opponent.details.name}</p>`;
+
+            const button = document.createElement('button');
+            button.textContent = 'Details';
+            button.onclick = () => toggleDetails(button);
+
+            matchSummary.append(home,stats,away,button);
+
+            // Appending advanced details (match-details);
+
+            const matchDetails = document.createElement('div');
+            matchDetails.className = 'match-details';
+
+            Object.values(matches.players[clubId]).forEach(player => {
+                const row = document.createElement('p');
+                row.innerHTML = `<span style='font-weight:bold'>${player.playername} - Goals: ${player.goals} | Assists: ${player.assists} | Rating: ${player.rating}`;
+                matchDetails.appendChild(row);
+            });
+
+            historyCard.append(matchSummary,matchDetails);
+
+            historyContainer.appendChild(historyCard);
+
+        });
+
+
+
 }
 
 

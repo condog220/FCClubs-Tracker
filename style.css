@@ -343,6 +343,57 @@ nav{
     border-radius: 10px;
 }
 
+.match-history-container{
+    width: 75%;
+    margin: 0 auto;
+}
+
+.history-card{
+    gap: 90px;
+    border: #b8b6b6 solid 1.5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.history-card img {
+    width: 130px;
+}
+
+.matchSummary {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+}
+
+.match-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.match-details {
+  margin-top: 25px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  text-align: center;
+}
+
+.history-card.expanded .match-details {
+  max-height: 500px;
+}
+
+
+
+
+
+.stats{
+    display: flex;
+    align-items: center;
+}
+
 
 
 
