@@ -1,6 +1,8 @@
 const searchBox = document.querySelector('.search input');
 const searchButton = document.querySelector('.search button');
 const clubNameDisplay = document.querySelector('.club-name h2');
+const historyContainer = document.querySelector('.match-history-container');
+    const memberList = document.querySelector('.member-stats-container');
 
 searchButton.addEventListener('click', async () => {
     const clubName = searchBox.value;
@@ -88,10 +90,16 @@ async function getMatchInfo(clubId){
         }
 
         const data = await response.json();
+        appendRecentGames(data, clubId);
         appendMatchHistory(data, clubId);
-        const recentGames = data.slice(0,3);
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 
-        console.log(recentGames);
+function appendRecentGames(data,clubId) {  
+        const recentGames = data.slice(0,3);
 
         const recentField = document.querySelector('.grid-games');
 
@@ -129,15 +137,10 @@ async function getMatchInfo(clubId){
                 gameField.querySelector('.outcome').classList.add('lose');
             }
         });
-    }
-    catch(error){
-        console.log(error);
-    }
 }
 
 async function appendMemberStats(data) {
     const memberStats = data.members;
-    const memberList = document.querySelector('.member-stats-container');
     memberList.innerHTML = '';
 
     const count = memberStats.length;
@@ -165,8 +168,6 @@ async function appendMemberStats(data) {
                     opponent = club;
                 }
             });
-
-            const historyContainer = document.querySelector('.match-history-container');
 
             const historyCard = document.createElement('div');
             historyCard.className = 'history-card';
