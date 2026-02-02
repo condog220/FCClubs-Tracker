@@ -195,6 +195,7 @@ async function appendMemberStats(data) {
             <p>${opponent.details.name}</p>`;
 
             const button = document.createElement('button');
+            button.classList.add('button');
             button.textContent = 'Details';
             button.onclick = () => toggleDetails(button);
 
