@@ -150,7 +150,7 @@ async function appendMemberStats(data) {
         const memberField = document.createElement('div');
         memberField.classList.add('member-card');
         memberField.innerHTML= `
-        <a href="stats.html?name=${member.name}">${member.name}</a>
+        <a id="member-link" href="stats.html?name=${member.name}">${member.name}</a>
         <p>${member.proOverall}</p>`;
         memberList.appendChild(memberField);
     });

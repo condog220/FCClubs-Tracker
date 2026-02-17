@@ -385,8 +385,20 @@ nav{
   max-height: 500px;
 }
 
+#wins, #draws, #losses{
+    font-weight: bold;
+}
 
+#member-link{
+    text-decoration: none;
+    color: black;
+    transition: font-size 0.2s ease;
+}
 
+#member-link:hover{
+    text-decoration: underline;
+    font-size: 20px;
+}
 
 
 .stats{
